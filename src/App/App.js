@@ -2,6 +2,8 @@ import React from 'react'
 import '../App/App.css'
 import movieData from '../movieData'
 import MainMovies from '../Movies/MainMovies/MainMovies'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 class App extends React.Component{
   constructor() {
@@ -25,9 +27,10 @@ class App extends React.Component{
 
   render() {
     return(
-      <main>
-      <h1>Hello World!</h1>
+      <main className="App">
+      <Header />
       <MainMovies posters={this.state.posters}/>
+      <Footer />
       </main>
     )
   }
