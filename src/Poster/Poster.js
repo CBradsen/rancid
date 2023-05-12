@@ -1,9 +1,9 @@
 import React from 'react'
 import '../Poster/Poster.css'
 
-function Poster({posterImg, posterId, posterTitle, showSinglePoster}){
+function Poster({posterImg, posterId, posterTitle, setSinglePoster}){
   return (
-    <img className="poster-img" src={posterImg} id= {posterId} alt={posterTitle} onClick={() => showSinglePoster()}/>
+    <img className="poster-img" src={posterImg} id= {posterId} alt={posterTitle} onClick={() => setSinglePoster(posterId)}/>
   )
 
 }
