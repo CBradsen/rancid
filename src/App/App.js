@@ -25,6 +25,11 @@ class App extends React.Component{
   //   //use it in the Movies folder to have in show on the UI
   // }
 
+  showSinglePoster() {
+    console.log("click")
+    // this.state.posters.find(poster => poster.id === id)
+  }
+
   render() {
     return(
       <main className="App">
