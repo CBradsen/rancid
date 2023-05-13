@@ -4,7 +4,8 @@ import Poster from "../../Poster/Poster";
 
 function MainMovies ({posters, setSinglePoster}) {
 
-const posterCards = posters.map(poster => {
+
+const posterCards = posters.movies.map(poster => {
   return(
     <Poster
     posterImg = {poster.poster_path}
