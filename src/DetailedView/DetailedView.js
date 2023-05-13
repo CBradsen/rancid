@@ -1,10 +1,20 @@
-import React from "react"
-import SingleMovie from "../Movies/SingleMovie/SingleMovie"
-import "../DetailedView/DetailedView.css"
+import React from "react";
+import SingleMovie from "../Movies/SingleMovie/SingleMovie";
+import "../DetailedView/DetailedView.css";
 
 function DetailedView({
-  title,posterImg,backdropImg,releaseDate,overview,
-  averageRating,genres,budget,revenue,runtime,tagline, resetMainPage
+  title,
+  posterImg,
+  backdropImg,
+  releaseDate,
+  overview,
+  averageRating,
+  genres,
+  budget,
+  revenue,
+  runtime,
+  tagline,
+  resetMainPage,
 }) {
   return (
     <div className="single-movie">
@@ -25,7 +35,7 @@ function DetailedView({
         <h3>{overview}</h3>
       </div>
     </div>
-  )
+  );
 }
 
-export default DetailedView
+export default DetailedView;

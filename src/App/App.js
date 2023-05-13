@@ -13,7 +13,7 @@ class App extends React.Component {
     super();
     this.state = {
       posters: null,
-      selectedPoster: [],
+      selectedPoster: null,
       error:'',
       isLoading: true
     }
@@ -43,14 +43,13 @@ class App extends React.Component {
 
     setSinglePoster = (posterId) => {
       this.getSpecficMovieData(posterId)
-      // const clickedPoster = this.state.selectedPoster.find(poster => poster.id === posterId);
-      this.setState((prevState) => ({
-        selectedPoster: [...prevState.selectedPoster, clickedPoster],
-      }));
+
+
+
     };
 
     resetMainPage = () => {
-      this.setState({selectedPoster: []})
+      this.setState({selectedPoster: null})
     }
 
     render() {
@@ -63,7 +62,7 @@ class App extends React.Component {
       return (
         <main className="App">
           <Header />
-          {this.state.selectedPoster.length ? (<SingleMovie selectedPoster={this.state.selectedPoster} resetMainPage={this.resetMainPage} />) :
+          {this.state.selectedPoster ? (<SingleMovie selectedPoster={this.state.selectedPoster} resetMainPage={this.resetMainPage} />) : 
           (<MainMovies posters={this.state.posters} setSinglePoster={this.setSinglePoster}/>)}
           <Footer />
         </main>
