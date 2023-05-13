@@ -3,26 +3,25 @@ import "../SingleMovie/SingleMovie.css"
 import DetailedView from "../../DetailedView/DetailedView"
 
 function SingleMovie({ selectedPoster, resetMainPage }) {
-  const singleMovieDisplay = selectedPoster.map((detail) => {
-    return (
-      <DetailedView
-        id={detail.id}
-        title={detail.title}
-        posterImg={detail.poster_path}
-        backdropImg={detail.backdrop_path}
-        releaseDate={detail.release_date}
-        overview={detail.overview}
-        averageRating={detail.average_rating}
-        genres={detail.genres}
-        budget={detail.budget}
-        revenue={detail.revenue}
-        runtime={detail.runtime}
-        tagline={detail.tagline}
-        key={detail.id}
+let singleMovieDisplay = (
+    <DetailedView
+        id={selectedPoster.movie.id}
+        title={selectedPoster.movie.title}
+        posterImg={selectedPoster.movie.poster_path}
+        backdropImg={selectedPoster.movie.backdrop_path}
+        releaseDate={selectedPoster.movie.release_date}
+        overview={selectedPoster.movie.overview}
+        averageRating={selectedPoster.movie.average_rating}
+        genres={selectedPoster.movie.genres}
+        budget={selectedPoster.movie.budget}
+        revenue={selectedPoster.movie.revenue}
+        runtime={selectedPoster.movie.runtime}
+        tagline={selectedPoster.movie.tagline}
+        key={selectedPoster.movie.id}
         resetMainPage={resetMainPage}
       />
     )
-  })
+
   return <div className="detail-container">
     {singleMovieDisplay}
     </div>
