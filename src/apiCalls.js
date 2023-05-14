@@ -5,9 +5,9 @@ const fetchData = () => {
       throw new Error(`Please try again there is an error ${res.status}`)
     } else {
       return res.json()
-    }
-  })
-}
+    };
+  });
+};
 
 const specficData = (id) => {
   return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
@@ -16,8 +16,8 @@ const specficData = (id) => {
       throw new Error(`Please try again there is an error ${res.status}`)
     } else {
       return res.json()
-    }
-  })
-}
+    };
+  });
+};
 
-export { fetchData, specficData}
+export { fetchData, specficData};

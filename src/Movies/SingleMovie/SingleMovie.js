@@ -1,35 +1,49 @@
+//Imports
 import React from "react";
 import "../SingleMovie/SingleMovie.css";
 import DetailedView from "../../DetailedView/DetailedView";
 import PropTypes from 'prop-types';
 
-function SingleMovie({ selectedPoster, resetMainPage }) {
+//Functions
+const SingleMovie = ({ selectedPoster, resetMainPage }) => {
+  const { id, 
+    title, 
+    poster_path, 
+    backdrop_path, 
+    release_date, 
+    overview, 
+    average_rating, 
+    genres, 
+    budget, 
+    revenue,
+    runtime,
+    tagline } = selectedPoster.movie
 let singleMovieDisplay = (
     <DetailedView
-        id={selectedPoster.movie.id}
-        title={selectedPoster.movie.title}
-        posterImg={selectedPoster.movie.poster_path}
-        backdropImg={selectedPoster.movie.backdrop_path}
-        releaseDate={selectedPoster.movie.release_date}
-        overview={selectedPoster.movie.overview}
-        averageRating={selectedPoster.movie.average_rating}
-        genres={selectedPoster.movie.genres}
-        budget={selectedPoster.movie.budget}
-        revenue={selectedPoster.movie.revenue}
-        runtime={selectedPoster.movie.runtime}
-        tagline={selectedPoster.movie.tagline}
-        key={selectedPoster.movie.id}
+        id={id}
+        title={title}
+        posterImg={poster_path}
+        backdropImg={backdrop_path}
+        releaseDate={release_date}
+        overview={overview}
+        averageRating={average_rating}
+        genres={genres}
+        budget={budget}
+        revenue={revenue}
+        runtime={runtime}
+        tagline={tagline}
+        key={id}
         resetMainPage={resetMainPage}
       />
-    )
-
+    );
   return <div className="detail-container">
     {singleMovieDisplay}
     </div>
-}
+};
 
 export default SingleMovie
 
+//PropTypes
 SingleMovie.propTypes = {
   resetMainPage: PropTypes.func.isRequired,
 selectedPoster: PropTypes.shape({
@@ -51,4 +65,4 @@ selectedPoster: PropTypes.shape({
   tagline: PropTypes.string.isRequired
   }).isRequired,
 }).isRequired
-}
+};
