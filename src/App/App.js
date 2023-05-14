@@ -3,9 +3,9 @@ import { fetchData, specficData } from '../apiCalls';
 import React from 'react';
 import '../App/App.css';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import SingleMovie from '../Movies/SingleMovie/SingleMovie';
 import MainMovies from '../Movies/MainMovies/MainMovies';
+import SingleMovie from '../Movies/SingleMovie/SingleMovie';
+import Footer from '../Footer/Footer';
 
 
 class App extends React.Component {
