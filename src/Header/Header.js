@@ -1,10 +1,12 @@
 import React from "react";
+import logo from "./rancid-clear.png"
 import '../Header/Header.css';
 
 const Header = () => {
   return (
     <header className="header">
-      <h1>Rancid Tomatillos!</h1>
+      <img src={ logo } alt="Rancid Tomatillos logo" />
+  
     </header>
   )
 };

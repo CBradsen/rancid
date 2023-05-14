@@ -1,4 +1,12 @@
 .header {
-  background-color: rgb(138, 183, 61);
-  color: aliceblue;
+  background-color:  #324B17ff;
+  color: rgb(238, 239, 230);
+  display: flex;
 }
+
+img {
+  width: 8rem;
+  height: auto;
+}
+
+

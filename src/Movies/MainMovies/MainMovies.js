@@ -18,8 +18,10 @@ const posterCards = posters.movies.map(({ poster_path, id, title }) => {
   );
 });
     return (
-      <div className="poster-container">
-        {posterCards}
+      <div class="wrapper">
+        <div className="poster-container">
+          {posterCards}
+        </div>
       </div>);
   };
 
