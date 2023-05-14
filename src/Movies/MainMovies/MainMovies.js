@@ -24,19 +24,19 @@ const posterCards = posters.movies.map(poster => {
       </div>)
   }
 
- MainMovies.propTypes = {
-  posters: PropTypes.shape({
-    movies: PropTypes.arrayOf(
-      PropTypes.shape({
-       poster_path: PropTypes.string.isRequired,
-       id: PropTypes.number.isRequired,
-       title: PropTypes.string.isRequired,
-
-      })
-    ).isRequired,
-  }).isRequired,
-  setSinglePoster: PropTypes.func
-  }
-
-
-export default MainMovies
+  
+  
+  export default MainMovies
+  MainMovies.propTypes = {
+   posters: PropTypes.shape({
+     movies: PropTypes.arrayOf(
+       PropTypes.shape({
+        poster_path: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+ 
+       })
+     ).isRequired,
+   }).isRequired,
+   setSinglePoster: PropTypes.func
+   }
