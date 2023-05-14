@@ -1,6 +1,7 @@
 import React from "react";
 import SingleMovie from "../Movies/SingleMovie/SingleMovie";
 import "../DetailedView/DetailedView.css";
+import PropTypes from 'prop-types';
 
 function DetailedView({
   title,
@@ -39,3 +40,23 @@ function DetailedView({
 }
 
 export default DetailedView;
+
+  DetailedView.propTypes = {
+
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  posterImg: PropTypes.string.isRequired,
+  backdropImg: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  averageRating: PropTypes.number.isRequired,
+  genres: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  budget: PropTypes.number.isRequired,
+  revenue: PropTypes.number.isRequired,
+  runtime: PropTypes.number.isRequired,
+  tagline: PropTypes.string.isRequired,
+  resetMainPage: PropTypes.func.isRequired
+};
