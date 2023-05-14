@@ -1,32 +1,31 @@
+// Imports
 import React from "react";
-import '../MainMovies/MainMovies.css'
-import Poster from "../../Poster/Poster";
 import PropTypes from 'prop-types';
+import '../MainMovies/MainMovies.css';
+import Poster from "../../Poster/Poster";
 
-function MainMovies ({posters, setSinglePoster}) {
-
-
-const posterCards = posters.movies.map(poster => {
+//Functions
+const MainMovies = ({ posters, setSinglePoster }) =>  {
+const posterCards = posters.movies.map(({ poster_path, id, title }) => {
   return(
     <Poster
-    posterImg = {poster.poster_path}
-    posterId = {poster.id}
-    key = {poster.id}
-    posterTitle = {poster.title}
+    posterImg = {poster_path}
+    posterId = {id}
+    key = {id}
+    posterTitle = {title}
     setSinglePoster = {setSinglePoster}
     />
-  )
-})
-  
+  );
+});
     return (
       <div className="poster-container">
         {posterCards}
-      </div>)
-  }
+      </div>);
+  };
 
-  
-  
-  export default MainMovies
+  export default MainMovies;
+
+//PropTypes
   MainMovies.propTypes = {
    posters: PropTypes.shape({
      movies: PropTypes.arrayOf(
@@ -34,9 +33,8 @@ const posterCards = posters.movies.map(poster => {
         poster_path: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
- 
        })
      ).isRequired,
    }).isRequired,
    setSinglePoster: PropTypes.func
-   }
+   };

@@ -1,11 +1,11 @@
+//Imports
 import { fetchData, specficData } from '../apiCalls';
 import React from 'react';
 import '../App/App.css';
-import movieData from '../movieData';
-import MainMovies from '../Movies/MainMovies/MainMovies';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
+import MainMovies from '../Movies/MainMovies/MainMovies';
 
 
 class App extends React.Component {
@@ -14,55 +14,60 @@ class App extends React.Component {
     this.state = {
       posters: null,
       selectedPoster: null,
-      error:'',
+      error: '',
       isLoading: true
-    }
-  }
+    };
+  };
 
-    componentDidMount() {
-    this.getMovieData()
-    }
+//Lifecycle Methods
+  componentDidMount = () => {
+    this.getMovieData();
+  };
 
-    getMovieData() {
-      fetchData()    
+//Data Fetching
+  getMovieData = () => {
+    fetchData()
       .then(jsonData => {
         this.setState({ posters: jsonData, isLoading: false });
       })
-      .catch(error => this.setState({error: error.message}))
-  }
+      .catch(error => this.setState({ error: error.message }));
+  };
 
-  getSpecficMovieData(id) {
+  getSpecficMovieData = (id) => {
     specficData(id)
-    .then(jsonData => {
-      this.setState({ selectedPoster: jsonData, isLoading: false })
-    })
-    .catch(error => this.setState({error: error.message}))
-  } 
+      .then(jsonData => {
+        this.setState({ selectedPoster: jsonData, isLoading: false });
+      })
+      .catch(error => this.setState({ error: error.message }));
+  };
 
-    setSinglePoster = (posterId) => {
-      this.getSpecficMovieData(posterId)
-    };
+//Event Handlers
+  setSinglePoster = (posterId) => {
+    this.getSpecficMovieData(posterId);
+  };
 
-    resetMainPage = () => {
-      this.setState({selectedPoster: null})
+  resetMainPage = () => {
+    this.setState({ selectedPoster: null });
+  };
+
+  // Render Method
+  render() {
+    const { error, isLoading, selectedPoster, posters } = this.state;
+    if (error) {
+      return <h2>Error: {error}</h2>;
     }
-
-    render() {
-      if (this.state.error) {
-        return <h2>Error: {this.state.error}</h2>;
-      }
-      if (this.state.isLoading) {
-        return <h2>Loading...</h2>;
-      }
-      return (
-        <main className="App">
-          <Header />
-          {this.state.selectedPoster ? (<SingleMovie selectedPoster={this.state.selectedPoster} resetMainPage={this.resetMainPage} />) : 
-          (<MainMovies posters={this.state.posters} setSinglePoster={this.setSinglePoster}/>)}
-          <Footer />
-        </main>
-      );
+    if (isLoading) {
+      return <h2>Loading...</h2>;
     }
-  }
+    return (
+      <main className="App">
+        <Header />
+        {selectedPoster ? (<SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />) :
+          (<MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />)}
+        <Footer />
+      </main>
+    );
+  };
+};
 
 export default App;

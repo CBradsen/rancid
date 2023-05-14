@@ -1,9 +1,10 @@
+//Imports
 import React from "react";
-import SingleMovie from "../Movies/SingleMovie/SingleMovie";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
 
-function DetailedView({
+//Functions
+const DetailedView = ({
   title,
   posterImg,
   backdropImg,
@@ -16,7 +17,7 @@ function DetailedView({
   runtime,
   tagline,
   resetMainPage,
-}) {
+}) => {
   return (
     <div className="single-movie">
       <button onClick={() => resetMainPage()}>Back to main on click</button>
@@ -37,12 +38,12 @@ function DetailedView({
       </div>
     </div>
   );
-}
+};
 
 export default DetailedView;
 
+//Proptypes
   DetailedView.propTypes = {
-
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   posterImg: PropTypes.string.isRequired,
