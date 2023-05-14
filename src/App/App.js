@@ -22,6 +22,7 @@ class App extends React.Component {
 //Lifecycle Methods
   componentDidMount = () => {
     this.getMovieData();
+    // this.getSpecficMovieData(593643);
   };
 
 //Data Fetching

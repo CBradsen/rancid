@@ -1,3 +1,97 @@
 .single-movie {
-  background-color: aquamarine;
+  display: flex;
+  background-color: #24251C;
+  color: #E0E4D2;
+  flex-direction: column;
+  width: auto;
+  min-height: 40rem;
+}
+
+.single-poster {
+  display: flex;
+  width: 14.5rem;
+  height: 21rem;
+  position: absolute;
+  right: 3rem;
+  top: 600px;
+}
+
+button {
+  border-radius: 50px;
+  color: #E0E4D2;
+  background-color: #324B17;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  padding: 15px;
+  box-shadow: 0 0 12px 2px rgba(0, 255, 0, 0.689); 
+  text-align: center;
+  width: 12rem;
+  margin: 10px;
+}
+
+button:hover {
+  box-shadow:  0 0 25px 5px rgb(0, 255, 0);
+}
+
+.backdrop {
+  max-height: 400px;
+  width: 100%;
+}
+
+
+h2 {
+  position: absolute;
+  top: 350px;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  background-color: rgba(13, 20, 18, 0.3);
+  border-radius: 50px;
+}
+
+.genre {
+  position: absolute;
+  top: 315px;
+  padding: 1rem 2rem;
+  background-color: rgba(13, 20, 18, 0.3);
+  border-radius: 50px;
+
+}
+
+.tagline {
+  margin-left: 40px;
+  font-size: 2em;
+  background-color: none;
+  /* position: absolute;
+  top: 550px; */
+}
+
+.overview {
+  margin-left: 40px;
+  word-wrap: break-word;
+  /* position: absolute;
+  top: 650px; */
+  font-size: 22px;
+  max-width: 45rem;
+  padding: 1rem 2rem;
+  background-color: rgba(13, 20, 18, 0.3);
+  border-radius: 50px;
+}
+
+.movie-numbers {
+  display: flex;
+  font-size: 30px;
+  padding: 10px;
+  justify-content: space-evenly
+}
+
+.movie-money{
+  display: flex;
+  justify-content: space-around;
+}
+
+.movie-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
