@@ -1,6 +1,7 @@
 import React from "react";
 import '../MainMovies/MainMovies.css'
 import Poster from "../../Poster/Poster";
+import PropTypes from 'prop-types';
 
 function MainMovies ({posters, setSinglePoster}) {
 
@@ -21,6 +22,20 @@ const posterCards = posters.movies.map(poster => {
       <div className="poster-container">
         {posterCards}
       </div>)
+  }
+
+ MainMovies.propTypes = {
+  posters: PropTypes.shape({
+    movies: PropTypes.arrayOf(
+      PropTypes.shape({
+       poster_path: PropTypes.string.isRequired,
+       id: PropTypes.number.isRequired,
+       title: PropTypes.string.isRequired,
+
+      })
+    ).isRequired,
+  }).isRequired,
+  setSinglePoster: PropTypes.func
   }
 
 
