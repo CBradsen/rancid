@@ -49,7 +49,6 @@ selectedPoster: PropTypes.shape({
   revenue: PropTypes.number.isRequired,
   runtime: PropTypes.number.isRequired,
   tagline: PropTypes.string.isRequired
-
-  })
-})
+  }).isRequired,
+}).isRequired
 }
