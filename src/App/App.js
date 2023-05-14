@@ -1,3 +1,4 @@
+import { fetchData, specficData } from '../apiCalls';
 import React from 'react';
 import '../App/App.css';
 import movieData from '../movieData';
@@ -5,7 +6,6 @@ import MainMovies from '../Movies/MainMovies/MainMovies';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
-import { fetchData, specficData } from '../apiCalls';
 
 
 class App extends React.Component {
@@ -26,7 +26,6 @@ class App extends React.Component {
     getMovieData() {
       fetchData()    
       .then(jsonData => {
-        console.log(jsonData)
         this.setState({ posters: jsonData, isLoading: false });
       })
       .catch(error => this.setState({error: error.message}))
@@ -35,7 +34,6 @@ class App extends React.Component {
   getSpecficMovieData(id) {
     specficData(id)
     .then(jsonData => {
-      console.log(jsonData)
       this.setState({ selectedPoster: jsonData, isLoading: false })
     })
     .catch(error => this.setState({error: error.message}))
@@ -43,9 +41,6 @@ class App extends React.Component {
 
     setSinglePoster = (posterId) => {
       this.getSpecficMovieData(posterId)
-
-
-
     };
 
     resetMainPage = () => {
@@ -53,11 +48,11 @@ class App extends React.Component {
     }
 
     render() {
-      if (this.state.isLoading) {
-        return <div>Loading...</div>;
-      }
       if (this.state.error) {
-        return <div>Error: {this.state.error}</div>;
+        return <h2>Error: {this.state.error}</h2>;
+      }
+      if (this.state.isLoading) {
+        return <h2>Loading...</h2>;
       }
       return (
         <main className="App">
