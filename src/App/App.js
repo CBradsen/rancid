@@ -1,12 +1,11 @@
-//Imports
-import { fetchData, specficData } from '../apiCalls';
+import { fetchData, specificData } from '../apiCalls';
 import React from 'react';
 import '../App/App.css';
 import Header from '../Header/Header';
 import MainMovies from '../Movies/MainMovies/MainMovies';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
 import Footer from '../Footer/Footer';
-
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -17,15 +16,12 @@ class App extends React.Component {
       error: '',
       isLoading: true
     };
-  };
+  }
 
-//Lifecycle Methods
-  componentDidMount = () => {
+  componentDidMount() {
     this.getMovieData();
-    // this.getSpecficMovieData(593643);
-  };
+  }
 
-//Data Fetching
   getMovieData = () => {
     fetchData()
       .then(jsonData => {
@@ -34,41 +30,55 @@ class App extends React.Component {
       .catch(error => this.setState({ error: error.message }));
   };
 
-  getSpecficMovieData = (id) => {
-    specficData(id)
+  getSpecificMovieData = (id) => {
+    specificData(id)
       .then(jsonData => {
         this.setState({ selectedPoster: jsonData, isLoading: false });
       })
       .catch(error => this.setState({ error: error.message }));
   };
 
-//Event Handlers
   setSinglePoster = (posterId) => {
-    this.getSpecficMovieData(posterId);
+    this.getSpecificMovieData(posterId);
   };
 
   resetMainPage = () => {
     this.setState({ selectedPoster: null });
   };
 
-  // Render Method
   render() {
     const { error, isLoading, selectedPoster, posters } = this.state;
+
     if (error) {
       return <h2>Error: {error}</h2>;
     }
+
     if (isLoading) {
       return <h2>Loading...</h2>;
     }
+
     return (
       <main className="App">
         <Header />
-        {selectedPoster ? (<SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />) :
-          (<MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />)}
+        <Switch>
+          <Route exact path="/">
+            <MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />
+          </Route>
+          <Route path="/:id" render={({ match }) => {
+            const moviePathId = match.params.id;
+            if (!selectedPoster || selectedPoster.id !== moviePathId) {
+              this.getSpecificMovieData(moviePathId);
+            }
+            return (
+              <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />
+            );
+          }} />
+          <Route render={() => <h2>Error: Page not found</h2>} />
+        </Switch>
         <Footer />
       </main>
     );
-  };
-};
+  }
+}
 
 export default App;
