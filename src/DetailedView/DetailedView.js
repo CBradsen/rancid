@@ -1,9 +1,7 @@
-//Imports
 import React from "react";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
 
-//Functions
 const DetailedView = ({
   title,
   posterImg,
@@ -18,6 +16,11 @@ const DetailedView = ({
   tagline,
   resetMainPage,
 }) => {
+  const handleReturn = () => {
+    resetMainPage();
+    window.location.href = '/';
+  };
+
   return (
     <div className="single-movie">
       <img className="backdrop" src={backdropImg} alt={title} />
@@ -34,19 +37,18 @@ const DetailedView = ({
         <p className="overview">{overview}</p>
       </div>
       <div className="movie-money">
-      <h4>Revenue: {revenue}</h4>
+        <h4>Revenue: {revenue}</h4>
         <h4>Budget: {budget}</h4>
       </div>
-      <button onClick={() => resetMainPage()}>Return to Main Menu</button>
+      <button onClick={handleReturn}>Return to Main Menu</button>
     </div>
   );
 };
 
 export default DetailedView;
 
-//Proptypes
-  DetailedView.propTypes = {
-  id: PropTypes.number.isRequired,
+// PropTypes
+DetailedView.propTypes = {
   title: PropTypes.string.isRequired,
   posterImg: PropTypes.string.isRequired,
   backdropImg: PropTypes.string.isRequired,
