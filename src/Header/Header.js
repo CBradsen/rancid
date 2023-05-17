@@ -1,12 +1,18 @@
 import React from "react";
 import logo from "./rancid-clear.png"
 import '../Header/Header.css';
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({resetMainPage}) => {
+    const handleReturn = () => {
+    resetMainPage();
+  };
   return (
     <header className="header">
-      <img className="logo" src={ logo } 
+       <Link to='/'>
+      <img className="logo" src={ logo } onClick={() => {handleReturn()}}
      alt="Rancid Tomatillos logo" />
+     </Link>
   
     </header>
   )
