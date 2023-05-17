@@ -59,7 +59,7 @@ class App extends React.Component {
 
     return (
       <main className="App">
-        <Header />
+        <Header resetMainPage={this.resetMainPage}/>
         <Switch>
           <Route exact path="/">
             <MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />

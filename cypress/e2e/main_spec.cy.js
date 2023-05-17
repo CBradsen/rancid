@@ -31,7 +31,7 @@ describe("Main page", function () {
       cy.visit("http://localhost:3000/")
       cy.get(".poster-img").first().click()
       .get(".single-movie").should("be.visible")
-      .url().should("include", "/1")
+      .url().should("eq", "http://localhost:3000/1013860")
   });
 
   it("should display error message when there is an error", function () {
