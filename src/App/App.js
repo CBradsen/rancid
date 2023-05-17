@@ -33,7 +33,7 @@ class App extends React.Component {
   getSpecificMovieData = (id) => {
     specificData(id)
       .then(jsonData => {
-        this.setState({ selectedPoster: jsonData, isLoading: false });
+        this.setState({ selectedPoster: jsonData, isLoading: false});
       })
       .catch(error => this.setState({ error: error.message }));
   };
@@ -68,10 +68,10 @@ class App extends React.Component {
             const moviePathId = match.params.id;
             if (!selectedPoster || selectedPoster.id !== moviePathId) {
               this.getSpecificMovieData(moviePathId);
+              return (
+                <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />
+              );
             }
-            return (
-              <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />
-            );
           }} />
           <Route render={() => <h2>Error: Page not found</h2>} />
         </Switch>

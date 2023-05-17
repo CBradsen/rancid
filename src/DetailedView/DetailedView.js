@@ -1,7 +1,11 @@
 import React from "react";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { Link } from 'react-router-dom'
+>>>>>>> main
 
 const DetailedView = ({
   title,
@@ -42,9 +46,13 @@ const DetailedView = ({
         <h4>Revenue: {revenue}</h4>
         <h4>Budget: {budget}</h4>
       </div>
+<<<<<<< HEAD
       <Link to="/" key={id}>
       <button onClick={() => {handleReturn()}}>Return to Main Menu</button>
       </Link>
+=======
+      <Link key={id} to='/'><button onClick={() => {handleReturn()}}>Return to Main Menu</button></Link>
+>>>>>>> main
     </div>
   );
 };

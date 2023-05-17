@@ -6,6 +6,10 @@ import Poster from "../../Poster/Poster";
 
 //Functions
 const MainMovies = ({ posters, setSinglePoster }) =>  {
+  if(!posters) {
+    return [];
+  }
+
 const posterCards = posters.movies.map(({ poster_path, id, title }) => {
   return(
     <Poster
@@ -36,7 +40,7 @@ const posterCards = posters.movies.map(({ poster_path, id, title }) => {
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
        })
-     ).isRequired,
-   }).isRequired,
+     ),
+   }),
    setSinglePoster: PropTypes.func
    };
