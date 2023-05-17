@@ -1,6 +1,7 @@
 import React from "react";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const DetailedView = ({
   title,
@@ -14,11 +15,12 @@ const DetailedView = ({
   revenue,
   runtime,
   tagline,
+  id,
   resetMainPage,
 }) => {
+
   const handleReturn = () => {
     resetMainPage();
-    window.location.href = '/';
   };
 
   return (
@@ -40,7 +42,9 @@ const DetailedView = ({
         <h4>Revenue: {revenue}</h4>
         <h4>Budget: {budget}</h4>
       </div>
-      <button onClick={handleReturn}>Return to Main Menu</button>
+      <Link to="/" key={id}>
+      <button onClick={() => {handleReturn()}}>Return to Main Menu</button>
+      </Link>
     </div>
   );
 };

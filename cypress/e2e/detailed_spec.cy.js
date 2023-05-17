@@ -11,10 +11,13 @@ describe("Detailed page", function () {
   })
 });
 
+
   it("should allow the user to click a movie poster and be taken to a page showing details about the movie they clicked", function() {
-    cy.get(".single-movie")
-    cy.get(".backdrop").should("be.visible");
-    cy.get(".single-poster").should("be.visible");
+    
+      cy.get(".backdrop").should("be.visible");
+      cy.get(".single-poster").should("be.visible");
+      cy.get("h2").contains("Rise of the");
+      cy.get(".average")
   });
 
   it("should allow the user to click a button to return to the main page", function() {
@@ -22,6 +25,5 @@ describe("Detailed page", function () {
     
   })
 
-  
-
 })
+
