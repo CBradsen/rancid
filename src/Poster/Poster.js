@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Poster/Poster.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 const Poster = ({ posterImg, posterId, posterTitle, setSinglePoster }) => {
   const handleClick = () => {
@@ -8,9 +9,9 @@ const Poster = ({ posterImg, posterId, posterTitle, setSinglePoster }) => {
   };
 
   return (
-    <a href={`/${posterId}`} onClick={handleClick}>
-      <img className="poster-img" src={posterImg} id={posterId} alt={posterTitle} />
-    </a>
+    <Link key={posterId} to={`/${posterId}`} >
+      <img className="poster-img" src={posterImg} id={posterId} alt={posterTitle} onClick={() => {handleClick()}}/>
+    </Link>
   );
 };
 
