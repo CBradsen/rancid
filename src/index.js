@@ -7,21 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<<<<<<< HEAD
- 
-=======
->>>>>>> main
   <BrowserRouter>
   <React.StrictMode>
     <App />
-<<<<<<< HEAD
-  </BrowserRouter>
-
- 
-=======
   </React.StrictMode>
   </BrowserRouter>
->>>>>>> main
 );
 
 

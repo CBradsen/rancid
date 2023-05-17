@@ -1,11 +1,7 @@
 import React from "react";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
-=======
-import { Link } from 'react-router-dom'
->>>>>>> main
 
 const DetailedView = ({
   title,
@@ -34,7 +30,7 @@ const DetailedView = ({
       <img className="single-poster" src={posterImg} alt={title} />
       <div className="movie-numbers">
         <h4 className="average">Average Rating: {averageRating}</h4>
-        <h4>Runtime: {runtime}</h4>
+        <h4 className="runtime">Runtime: {runtime}</h4>
         <h4>Release Date: {releaseDate}</h4>
       </div>
       <div className="movie-text">
@@ -43,16 +39,10 @@ const DetailedView = ({
         <p className="overview">{overview}</p>
       </div>
       <div className="movie-money">
-        <h4>Revenue: {revenue}</h4>
-        <h4>Budget: {budget}</h4>
+        <h4 className="revenue">Revenue: {revenue}</h4>
+        <h4 className="budget">Budget: {budget}</h4>
       </div>
-<<<<<<< HEAD
-      <Link to="/" key={id}>
-      <button onClick={() => {handleReturn()}}>Return to Main Menu</button>
-      </Link>
-=======
-      <Link key={id} to='/'><button onClick={() => {handleReturn()}}>Return to Main Menu</button></Link>
->>>>>>> main
+      <Link key={id} to='/'><button data-cy="submit" onClick={() => {handleReturn()}}>Return to Main Menu</button></Link>
     </div>
   );
 };
