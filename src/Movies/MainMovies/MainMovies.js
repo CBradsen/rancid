@@ -7,7 +7,7 @@ import Poster from "../../Poster/Poster";
 //Functions
 const MainMovies = ({ posters, setSinglePoster }) =>  {
   if(!posters) {
-    return null;
+    return [];
   }
 
 const posterCards = posters.movies.map(({ poster_path, id, title }) => {

@@ -11,8 +11,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      posters: null,
-      selectedPoster: null,
+      posters: [],
+      selectedPoster: {},
       error: '',
       isLoading: true
     };
@@ -43,7 +43,7 @@ class App extends React.Component {
   };
 
   resetMainPage = () => {
-    this.setState({ selectedPoster: null });
+    this.setState({ selectedPoster: {} });
   };
 
   render() {

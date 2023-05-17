@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 
 //Functions
 const SingleMovie = ({ selectedPoster, resetMainPage }) => {
-  if (!selectedPoster) {
-    return null;
+  if (!selectedPoster || !selectedPoster.movie) {
+    return
+    {}; 
   }
   const {
     id,
@@ -65,6 +66,6 @@ SingleMovie.propTypes = {
       revenue: PropTypes.number.isRequired,
       runtime: PropTypes.number.isRequired,
       tagline: PropTypes.string.isRequired
-    }).isRequired,
+    }),
   })
 };
