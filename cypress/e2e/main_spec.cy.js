@@ -29,7 +29,7 @@ describe("Main page", function () {
 
   it("should successfully render the detailed view of a specific movie upon user selection", function () {
       cy.visit("http://localhost:3000/")
-      cy.get(".poster-img").first().click()
+      .get(".poster-img").first().click()
       .get(".single-movie").should("be.visible")
       .url().should("eq", "http://localhost:3000/1013860")
   });
@@ -37,10 +37,12 @@ describe("Main page", function () {
   it("should display error message when there is an error", function () {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
       statusCode: 500, 
-      body: "Server Error" 
+      body:  {
+        error: "Server Error" 
+       } 
     });
     cy.visit("http://localhost:3000/")
-    cy.contains("Error: Please try again there is an error code: 500").should("be.visible")
+      .contains("Error: Please try again there is an error. code: 500").should("be.visible")
   });
 
   it("should display 'Loading...' while data is being fetched", function () {
@@ -49,7 +51,7 @@ describe("Main page", function () {
       fixture: "movieData" 
     });
     cy.visit("http://localhost:3000/")
-    cy.contains("Loading...").should("be.visible")
+      .contains("Loading...").should("be.visible")
     cy.contains("Loading...").should("not.exist")
   });
 });
