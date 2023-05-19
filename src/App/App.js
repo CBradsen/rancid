@@ -1,20 +1,19 @@
-import { fetchData, specificData } from '../apiCalls';
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import '../App/App.css';
 import Header from '../Header/Header';
 import MainMovies from '../Movies/MainMovies/MainMovies';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
 import Footer from '../Footer/Footer';
-import { Route, Switch } from 'react-router-dom';
+import { fetchData } from '../apiCalls';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       posters: [],
-      selectedPoster: {},
       error: '',
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -30,25 +29,8 @@ class App extends React.Component {
       .catch(error => this.setState({ error: error.message }));
   };
 
-  getSpecificMovieData = (id) => {
-    specificData(id)
-      .then(jsonData => {
-        console.log("getSpecificMovieData",jsonData)
-        this.setState({ selectedPoster: jsonData, isLoading: false });
-      })
-      .catch(error => this.setState({ error: error.message }));
-  };
-
-  setSinglePoster = (posterId) => {
-    this.getSpecificMovieData(posterId);
-  };
-
-  resetMainPage = () => {
-    this.setState({ selectedPoster: {} });
-  };
-
   render() {
-    const { error, isLoading, selectedPoster, posters } = this.state;
+    const { error, isLoading, posters } = this.state;
     if (error) {
       return <h2>Error: {error}</h2>;
     }
@@ -60,11 +42,14 @@ class App extends React.Component {
         <Header resetMainPage={this.resetMainPage} />
         <Switch>
           <Route exact path="/" render={() => (
-            <MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />
-          )} /> 
+            <MainMovies posters={posters}  />
+          )} />
           <Route path="/:id" render={({ match }) => (
-          <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} match={match}/>)} />
-          <Route path="*"render={() => <h2>Error: Page not found</h2>} />
+            <SingleMovie
+              match={match}
+            />
+          )} />
+          <Route path="*" render={() => <h2>Error: Page not found</h2>} />
         </Switch>
         <Footer />
       </main>
@@ -73,3 +58,4 @@ class App extends React.Component {
 }
 
 export default App;
+

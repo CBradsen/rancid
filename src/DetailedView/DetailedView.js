@@ -15,12 +15,8 @@ const DetailedView = ({
   revenue,
   runtime,
   tagline,
-  id,
-  resetMainPage,
+  id
 }) => {
-  const handleReturn = () => {
-    resetMainPage();
-  };
 
   return (
     <div className="single-movie">
@@ -41,7 +37,7 @@ const DetailedView = ({
         <h4 className="revenue">Revenue: {revenue}</h4>
         <h4 className="budget">Budget: {budget}</h4>
       </div>
-      <Link key={id} to='/'><button onClick={() => {handleReturn()}}>Return to Main Menu</button></Link>
+      <Link key={id} to='/'><button>Return to Main Menu</button></Link>
     </div>
   );
 };
@@ -64,5 +60,4 @@ DetailedView.propTypes = {
   revenue: PropTypes.number.isRequired,
   runtime: PropTypes.number.isRequired,
   tagline: PropTypes.string.isRequired,
-  resetMainPage: PropTypes.func.isRequired
 };
