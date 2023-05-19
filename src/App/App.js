@@ -20,7 +20,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getMovieData();
-    this.getSpecificMovieData();
   }
 
   getMovieData = () => {
@@ -34,7 +33,7 @@ class App extends React.Component {
   getSpecificMovieData = (id) => {
     specificData(id)
       .then(jsonData => {
-        console.log(jsonData)
+        console.log("getSpecificMovieData",jsonData)
         this.setState({ selectedPoster: jsonData, isLoading: false });
       })
       .catch(error => this.setState({ error: error.message }));
@@ -46,18 +45,6 @@ class App extends React.Component {
 
   resetMainPage = () => {
     this.setState({ selectedPoster: {} });
-  };
-
-
-  handleRouteMatch = ({ match }) => {
-    const moviePathId = match.params.id;
-    const { selectedPoster } = this.state;
-    if (!selectedPoster || selectedPoster.id !== moviePathId) {
-      this.getSpecificMovieData(moviePathId);
-      return (
-        <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />
-      );
-    }
   };
 
   render() {
@@ -75,7 +62,8 @@ class App extends React.Component {
           <Route exact path="/" render={() => (
             <MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />
           )} /> 
-          <Route path="/:id" render={this.handleRouteMatch} />
+          <Route path="/:id" render={({ match }) => (
+          <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} match={match}/>)} />
           <Route path="*"render={() => <h2>Error: Page not found</h2>} />
         </Switch>
         <Footer />

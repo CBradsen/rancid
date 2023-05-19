@@ -9,9 +9,10 @@ const Poster = ({ posterImg, posterId, posterTitle, setSinglePoster }) => {
   };
 
   return (
-    <Link key={posterId} to={`/${posterId}`} >
-      <img className="poster-img" src={posterImg} id={posterId} alt={posterTitle} onClick={() => {handleClick()}}/>
-    </Link>
+    <Link key={posterId} to={`/${posterId}`}>
+    <img className="poster-img" src={posterImg} id={posterId} alt={posterTitle} onClick={handleClick} />
+  </Link>
+  
   );
 };
 

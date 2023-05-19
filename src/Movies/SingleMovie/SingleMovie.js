@@ -4,6 +4,7 @@ import "../SingleMovie/SingleMovie.css";
 import DetailedView from "../../DetailedView/DetailedView";
 import PropTypes from 'prop-types';
 
+
 //Functions
 const SingleMovie = ({ selectedPoster, resetMainPage }) => {
   if (!selectedPoster || !selectedPoster.movie) {
