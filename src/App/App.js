@@ -20,6 +20,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getMovieData();
+    this.getSpecificMovieData();
   }
 
   getMovieData = () => {
@@ -33,7 +34,8 @@ class App extends React.Component {
   getSpecificMovieData = (id) => {
     specificData(id)
       .then(jsonData => {
-        this.setState({ selectedPoster: jsonData, isLoading: false});
+        console.log(jsonData)
+        this.setState({ selectedPoster: jsonData, isLoading: false });
       })
       .catch(error => this.setState({ error: error.message }));
   };
@@ -46,34 +48,35 @@ class App extends React.Component {
     this.setState({ selectedPoster: {} });
   };
 
+
+  handleRouteMatch = ({ match }) => {
+    const moviePathId = match.params.id;
+    const { selectedPoster } = this.state;
+    if (!selectedPoster || selectedPoster.id !== moviePathId) {
+      this.getSpecificMovieData(moviePathId);
+      return (
+        <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />
+      );
+    }
+  };
+
   render() {
     const { error, isLoading, selectedPoster, posters } = this.state;
-
     if (error) {
       return <h2>Error: {error}</h2>;
     }
-
     if (isLoading) {
       return <h2>Loading...</h2>;
     }
-
     return (
       <main className="App">
-        <Header resetMainPage={this.resetMainPage}/>
+        <Header resetMainPage={this.resetMainPage} />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" render={() => (
             <MainMovies posters={posters} setSinglePoster={this.setSinglePoster} />
-          </Route>
-          <Route path="/:id" render={({ match }) => {
-            const moviePathId = match.params.id;
-            if (!selectedPoster || selectedPoster.id !== moviePathId) {
-              this.getSpecificMovieData(moviePathId);
-              return (
-                <SingleMovie selectedPoster={selectedPoster} resetMainPage={this.resetMainPage} />
-              );
-            }
-          }} />
-          <Route render={() => <h2>Error: Page not found</h2>} />
+          )} /> 
+          <Route path="/:id" render={this.handleRouteMatch} />
+          <Route path="*"render={() => <h2>Error: Page not found</h2>} />
         </Switch>
         <Footer />
       </main>
