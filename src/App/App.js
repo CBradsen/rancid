@@ -14,7 +14,6 @@ class App extends React.Component {
     super();
     this.state = {
       posters: [],
-      sortedMovies: [],
       error: '',
       isLoading: true,
     };
@@ -27,7 +26,6 @@ class App extends React.Component {
   getMovieData = () => {
     fetchData()
       .then(jsonData => {
-        console.log("Is this an array? Json", jsonData)
         this.setState({ posters: jsonData, isLoading: false });
       })
       .catch(error => this.setState({ error: error.message }));
@@ -38,8 +36,8 @@ class App extends React.Component {
 
     this.setState(prevState => {
       const jsonDataMovies = [...prevState.posters.movies]
-      const sortedMovies = jsonDataMovies.sort((a, b) => a.average_ratings - b.average_ratings);
-    return { posters: sortedMovies };
+      const sortedMovies = jsonDataMovies.sort((a, b) => b.average_rating - a.average_rating);
+    return { posters: {...prevState.posters, movies: sortedMovies } };
     });
   };
    
