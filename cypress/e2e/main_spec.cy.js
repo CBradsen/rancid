@@ -24,7 +24,7 @@ describe("Main page", function () {
 
   it("should successfully render Footer component", function () {
       cy.get(".footer").should("be.visible")
-        .get(".footer .footer-paragraph").should("contain", "🍿")
+        .get(".footer .rancid-rudy").should("be.visible")
   });
 
   it("should successfully render the detailed view of a specific movie upon user selection", function () {

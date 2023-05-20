@@ -1,10 +1,12 @@
 import React from "react";
 import "../Footer/Footer.css";
+import rudy from "./rancid-rudy.png"
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <p className="footer-paragraph">🍿</p>
+      <img className="rancid-rudy" src={ rudy } 
+     alt="Rancid Rudy logo" />
     </footer>
 
   );

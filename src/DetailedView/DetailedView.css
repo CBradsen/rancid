@@ -1,6 +1,6 @@
 .single-movie {
   display: flex;
-  background-color: #24251C;
+  background: linear-gradient(180deg, rgb(31, 14, 20) 17%, rgb(73, 34, 48) 47%, rgba(130, 114, 95, 0.922) 92%);
   color: #E0E4D2;
   flex-direction: column;
   width: auto;
@@ -19,18 +19,18 @@
 button {
   border-radius: 50px;
   color: #E0E4D2;
-  background-color: #324B17;
+  background: rgb(31, 14, 20);
   font-family: 'Montserrat', sans-serif;
   border: none;
   padding: 15px;
-  box-shadow: 0 0 12px 2px rgba(0, 255, 0, 0.689); 
+  box-shadow: 0 0 12px 2px rgba(140, 131, 3, 0.689);
   text-align: center;
   width: 12rem;
   margin: 10px;
 }
 
 button:hover {
-  box-shadow:  0 0 25px 5px rgb(0, 255, 0);
+  box-shadow:  0 0 25px 5px rgb(140, 131, 3);
 }
 
 .backdrop {

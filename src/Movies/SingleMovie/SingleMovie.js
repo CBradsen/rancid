@@ -1,6 +1,7 @@
 import React from "react";
 import "../SingleMovie/SingleMovie.css";
 import DetailedView from "../../DetailedView/DetailedView";
+import Trailers from "../../Trailers/Trailers";
 import PropTypes from 'prop-types';
 import { specificData } from '../../apiCalls'
 
@@ -9,8 +10,9 @@ class SingleMovie extends React.Component {
     super();
     this.state = {
       selectedPoster: {},
+      selectedVideos: [],
       error: '',
-      isLoading: false
+      isLoading: true 
     };
   }
 
@@ -21,17 +23,22 @@ class SingleMovie extends React.Component {
 
   getSpecificMovieData = (id) => {
     specificData(id)
-      .then(jsonData => {
-        console.log("getSpecificMovieData", jsonData);
-        this.setState({ selectedPoster: jsonData, isLoading: false });
+      .then(({ movieData, videoData }) => { 
+        console.log("getSpecificMovieData", movieData, videoData);
+        this.setState({
+          selectedPoster: movieData,
+          selectedVideos: videoData.videos.find(video => video.type === "Trailer"), 
+          isLoading: false 
+        });
       })
       .catch(error => this.setState({ error: error.message }));
   };
 
-
-
   render() {
-    const { selectedPoster } = this.state;
+    const { selectedPoster, selectedVideos, isLoading } = this.state; 
+    if (isLoading) {
+      return <div>Loading...</div>; 
+    }
     if (!selectedPoster || !selectedPoster.movie) {
       return null;
     }
@@ -48,8 +55,9 @@ class SingleMovie extends React.Component {
       budget,
       revenue,
       runtime,
-      tagline
+      tagline,
     } = selectedPoster.movie;
+
 
     return (
       <div className="detail-container">
@@ -66,7 +74,7 @@ class SingleMovie extends React.Component {
           revenue={revenue}
           runtime={runtime}
           tagline={tagline}
-          key={id}
+          videos={selectedVideos}
         />
       </div>
     );

@@ -2,7 +2,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  background-color: rgb(24, 34, 31);
+  background: rgb(57,34,4);
+  background: linear-gradient(180deg, rgb(31, 14, 20) 17%, rgb(73, 34, 48) 47%, rgba(130, 114, 95, 0.922) 92%);
   font-family: 'Montserrat', sans-serif;
 }
 
