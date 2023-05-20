@@ -67,5 +67,5 @@ DetailedView.propTypes = {
   revenue: PropTypes.number.isRequired,
   runtime: PropTypes.number.isRequired,
   tagline: PropTypes.string.isRequired,
-  videos: PropTypes.array.isRequired 
+  videos: PropTypes.object.isRequired 
 };

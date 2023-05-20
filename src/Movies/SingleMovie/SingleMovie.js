@@ -24,7 +24,6 @@ class SingleMovie extends React.Component {
   getSpecificMovieData = (id) => {
     specificData(id)
       .then(({ movieData, videoData }) => { 
-        console.log("getSpecificMovieData", movieData, videoData);
         this.setState({
           selectedPoster: movieData,
           selectedVideos: videoData.videos.find(video => video.type === "Trailer"), 
