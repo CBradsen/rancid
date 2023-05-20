@@ -7,3 +7,11 @@
 .poster-img:hover {
   box-shadow:  0 0 26px 5px rgb(140,131,3);
 }
+
+.rating {
+  color:rgb(237, 232, 226);
+  display: flex;
+  text-align: right;
+  padding-left: 1.6rem;
+  margin-top: 2px;
+}

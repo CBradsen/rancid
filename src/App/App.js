@@ -6,7 +6,6 @@ import { fetchData } from '../apiCalls';
 import MainMovies from '../Movies/MainMovies/MainMovies';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
 import Footer from '../Footer/Footer';
-import SortButton from '../Header/SortButton/SortButton';
 
 
 class App extends React.Component {
@@ -52,18 +51,14 @@ class App extends React.Component {
     return (
       <main className="App">
         <Header resetMainPage={this.resetMainPage} />
-        <SortButton sortByRating={this.sortByRating} />
-        <Switch>
-          <Route exact path="/" render={() => (
-            <MainMovies posters={posters}  />
-          )} />
-          <Route path="/:id" render={({ match }) => (
-            <SingleMovie
-              match={match}
-            />
-          )} />
-          <Route path="*" render={() => <h2>Error: Page not found</h2>} />
-        </Switch>
+        <body>
+          <Switch>
+            <Route exact path="/" render={() => (
+              <MainMovies posters={posters} sortByRating={this.sortByRating}/> )} />
+            <Route path="/:id" render={({ match }) => ( <SingleMovie match={match} />)} />
+            <Route path="*" render={() => <h2>Error: Page not found</h2>} />
+          </Switch>
+        </body>
         <Footer />
       </main>
     );
