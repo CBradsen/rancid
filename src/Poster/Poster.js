@@ -3,10 +3,11 @@ import '../Poster/Poster.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-const Poster = ({ posterImg, posterId, posterTitle }) => {
+const Poster = ({ posterImg, rating, posterId, posterTitle }) => {
   return (
     <Link key={posterId} to={`/${posterId}`}>
     <img className="poster-img" src={posterImg} id={posterId} alt={posterTitle} />
+    <p>{rating}</p>
   </Link>
   );
 };
