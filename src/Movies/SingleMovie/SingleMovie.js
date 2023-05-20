@@ -35,14 +35,16 @@ class SingleMovie extends React.Component {
   };
 
   render() {
-    const { selectedPoster, selectedVideos, isLoading } = this.state; 
+    const { error, isLoading, selectedVideos, selectedPoster } = this.state;
+    if (error) {
+      return <h2>Error: {error}</h2>;
+    }
     if (isLoading) {
-      return <div>Loading...</div>; 
+      return <h2>Loading...</h2>;
     }
     if (!selectedPoster || !selectedPoster.movie) {
       return null;
     }
-
     const {
       id,
       title,
