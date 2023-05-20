@@ -2,6 +2,7 @@ import React from "react";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
+import Trailers from "../Trailers/Trailers"; 
 
 const DetailedView = ({
   title,
@@ -15,9 +16,9 @@ const DetailedView = ({
   revenue,
   runtime,
   tagline,
-  id
+  id,
+  videos
 }) => {
-
   return (
     <div className="single-movie">
       <img className="backdrop" src={backdropImg} alt={title} />
@@ -37,7 +38,13 @@ const DetailedView = ({
         <h4 className="revenue">Revenue: {revenue}</h4>
         <h4 className="budget">Budget: {budget}</h4>
       </div>
-      <Link key={id} to='/'><button>Return to Main Menu</button></Link>
+      <div className="videos">
+        <h3>Trailer</h3>
+        <Trailers trailerId={videos.key} /> 
+      </div>
+      <Link key={id} to='/'>
+        <button>Return to Main Menu</button>
+      </Link>
     </div>
   );
 };
@@ -60,4 +67,5 @@ DetailedView.propTypes = {
   revenue: PropTypes.number.isRequired,
   runtime: PropTypes.number.isRequired,
   tagline: PropTypes.string.isRequired,
+  videos: PropTypes.array.isRequired 
 };
