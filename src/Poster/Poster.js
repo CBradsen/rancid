@@ -7,7 +7,7 @@ const Poster = ({ posterImg, rating, posterId, posterTitle }) => {
   return (
     <Link key={posterId} to={`/${posterId}`}>
     <img className="poster-img" src={posterImg} id={posterId} alt={posterTitle} />
-    <p>{rating}</p>
+    <p className="rating">Rating: {rating}</p>
   </Link>
   );
 };
