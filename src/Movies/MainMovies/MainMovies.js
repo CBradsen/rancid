@@ -19,6 +19,7 @@ const posterCards = posters.movies.map(({ poster_path, id, title, average_rating
     posterTitle = {title}
     rating = {average_rating}
     />
+    
   );
 });
     return (

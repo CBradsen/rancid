@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.ErrorPage {
+  flex: 1;
+  background-image: url("../ErrorPage/Rancid-404.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.Header,
+.Footer {
+  flex-shrink: 0;
+}
