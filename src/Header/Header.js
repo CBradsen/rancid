@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "./rancid-clear.png"
-import logo2 from "./rancid-logo-2.png"
+import logo2 from "./rancid-logo-2.png";
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
 

@@ -1,0 +1,10 @@
+.sort-button {
+  display: flex;
+  width: auto;
+  height: auto;
+  margin-left: 3.3rem;
+  padding: .5rem .6rem;
+  background: rgb(117, 54, 76);
+  font-size: .9rem;
+  color:rgb(244, 240, 233);
+}
