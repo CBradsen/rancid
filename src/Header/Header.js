@@ -11,7 +11,7 @@ const Header = () => {
       <img className="logo" src={ logo } 
      alt="Rancid Tomatillos logo" />
      </Link>
-     <Link to="/sorted">
+     <Link to="/rankings">
       <button>Sort By Ratings</button>
       </Link>
     </header>
