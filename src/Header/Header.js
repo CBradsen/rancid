@@ -1,17 +1,19 @@
 import React from "react";
-import logo from "./rancid-clear.png"
+import logo from "./rancid-clear.png";
 import '../Header/Header.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
   return (
     <header className="header">
-       <Link to='/'>
+      <Link to='/'>
       <img className="logo" src={ logo } 
      alt="Rancid Tomatillos logo" />
      </Link>
-  
+     <Link to="/sorted">
+      <button>Sort By Ratings</button>
+      </Link>
     </header>
   )
 };
