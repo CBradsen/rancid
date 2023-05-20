@@ -10,13 +10,14 @@ const MainMovies = ({ posters }) =>  {
     return [];
   }
 
-const posterCards = posters.movies.map(({ poster_path, id, title }) => {
+const posterCards = posters.movies.map(({ poster_path, id, title, average_rating }) => {
   return(
     <Poster
     posterImg = {poster_path}
     posterId = {id}
     key = {id}
     posterTitle = {title}
+    rating = {average_rating}
     />
   );
 });
