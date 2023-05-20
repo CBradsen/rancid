@@ -5,7 +5,7 @@ import '../MainMovies/MainMovies.css';
 import Poster from "../../Poster/Poster";
 
 //Functions
-const MainMovies = ({ posters, setSinglePoster }) =>  {
+const MainMovies = ({ posters }) =>  {
   if(!posters) {
     return [];
   }
@@ -17,7 +17,6 @@ const posterCards = posters.movies.map(({ poster_path, id, title }) => {
     posterId = {id}
     key = {id}
     posterTitle = {title}
-    setSinglePoster = {setSinglePoster}
     />
   );
 });
@@ -41,6 +40,5 @@ const posterCards = posters.movies.map(({ poster_path, id, title }) => {
         title: PropTypes.string.isRequired,
        })
      ),
-   }),
-   setSinglePoster: PropTypes.func
+   })
    };
