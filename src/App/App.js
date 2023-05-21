@@ -31,8 +31,6 @@ class App extends React.Component {
   };
 
   sortByRating = () => {
-    console.log("state of posters begin of sort", this.state.posters)
-
     this.setState(prevState => {
       const jsonDataMovies = [...prevState.posters.movies]
       const sortedMovies = jsonDataMovies.sort((a, b) => b.average_rating - a.average_rating);
@@ -51,18 +49,14 @@ class App extends React.Component {
     return (
       <main className="App">
         <Header resetMainPage={this.resetMainPage} />
-        <SortButton sortByRating={this.sortByRating} />
-        <Switch>
-          <Route exact path="/" render={() => (
-            <MainMovies posters={posters}  />
-          )} />
-          <Route path="/:id" render={({ match }) => (
-            <SingleMovie
-              match={match}
-            />
-          )} />
-          <Route path="*" render={() => <h2>Error: Page not found</h2>} />
-        </Switch>
+        <div>
+          <Switch>
+            <Route exact path="/" render={() => (
+              <MainMovies posters={posters} sortByRating={this.sortByRating}/> )} />
+            <Route path="/:id" render={({ match }) => ( <SingleMovie match={match} />)} />
+            <Route path="*" render={() => <h2>Error: Page not found</h2>} />
+          </Switch>
+        </div>
         <Footer />
       </main>
     );
