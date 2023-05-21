@@ -26,17 +26,17 @@ const DetailedView = ({
       <img className="single-poster" src={posterImg} alt={title} />
       <div className="movie-numbers">
         <h4 className="average">Average Rating: {averageRating}</h4>
-        <h4 className="runtime">Runtime: {runtime}</h4>
+        <h4 className="runtime">Runtime: {runtime} minutes</h4>
         <h4 className="release">Release Date: {releaseDate}</h4>
       </div>
       <div className="movie-text">
-        <h3 className="genre">{genres}</h3>
+        <h3 className="genre">{genres.join(", ")}</h3>
         <h3 className="tagline">{tagline}</h3>
         <p className="overview">{overview}</p>
       </div>
       <div className="movie-money">
-        <h4 className="revenue">Revenue: {revenue}</h4>
-        <h4 className="budget">Budget: {budget}</h4>
+        <h4 className="revenue">Revenue: ${revenue.toLocaleString()}</h4>
+        <h4 className="budget">Budget: ${budget.toLocaleString()}</h4>
       </div>
       <div className="videos">
         <h3>Trailer</h3>
