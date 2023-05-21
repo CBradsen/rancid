@@ -1,10 +1,9 @@
-<<<<<<< HEAD
+
 body {
   margin: 0;
   padding: 0;
 }
-=======
->>>>>>> 1411d00 (Add error page)
+
 .App {
   display: flex;
   flex-direction: column;

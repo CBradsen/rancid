@@ -6,10 +6,6 @@ import { fetchData, specificData } from '../apiCalls';
 import MainMovies from '../Movies/MainMovies/MainMovies';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
 import Footer from '../Footer/Footer';
-<<<<<<< HEAD
-=======
-import SortButton from '../Header/SortButton/SortButton';
->>>>>>> 1411d00 (Add error page)
 import ErrorPage from '../ErrorPage/ErrorPage';
 
 class App extends React.Component {
@@ -55,15 +51,10 @@ class App extends React.Component {
         <Header resetMainPage={this.resetMainPage} />
         <Switch>
           <Route exact path="/" render={() => (
-<<<<<<< HEAD
+
             <MainMovies posters={posters} sortByRating={this.sortByRating}  />
           )} />
     <Route path="/:id" render={({ match }) => {
-=======
-            <MainMovies posters={posters} />
-          )} />
-          <Route path="/:id" render={({ match }) => {
->>>>>>> 1411d00 (Add error page)
             const { id } = match.params;
             const movie = posters.movies.find(movie => movie.id.toString() === id);
             return movie ? (
@@ -80,10 +71,6 @@ class App extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-export default App;
-=======
+
 export default App;
 
-
->>>>>>> 1411d00 (Add error page)
