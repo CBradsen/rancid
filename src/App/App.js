@@ -2,11 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../App/App.css';
 import Header from '../Header/Header';
-import { fetchData, specificData } from '../apiCalls';
+import { fetchData } from '../apiCalls';
 import MainMovies from '../Movies/MainMovies/MainMovies';
 import SingleMovie from '../Movies/SingleMovie/SingleMovie';
 import Footer from '../Footer/Footer';
-
 
 class App extends React.Component {
   constructor() {
@@ -64,5 +63,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-

@@ -40,8 +40,6 @@ const DetailedView = ({
           <img className="single-poster" src={posterImg} alt={title} />
         </div>
       </div>
-  
-        
       <div className="videos">
         <Trailers trailerId={videos.key} /> 
       </div>

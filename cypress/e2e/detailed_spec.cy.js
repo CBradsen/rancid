@@ -9,7 +9,6 @@ describe("Detailed page", function () {
   .get(".poster-img").first().click()
 });
 
-
   it("should allow the user to click a movie poster and be taken to a page showing details about the movie they clicked", function() {
       cy.url().should("eq", "http://localhost:3000/1013860")
       .get(".backdrop").should("be.visible")
