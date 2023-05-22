@@ -41,7 +41,11 @@ const DetailedView = ({
         </div>
       </div>
       <div className="videos">
-        <Trailers trailerId={videos.key} /> 
+      {videos && videos.key ? (
+          <Trailers trailerId={videos.key} />
+        ) : (
+          <p>No trailer available</p>
+        )}
       </div>
       <Link key={id} to='/'>
         <button>Return to Main Menu</button>
