@@ -15,10 +15,10 @@ describe("Detailed page", function () {
       .get(".single-poster").should("be.visible")
       .get("h2").contains("Rise of the")
       .get('.average').should("contain", "7")
-      .get(".genre").should("contain", "FantasyActionComedyCrime")
+      .get(".genre").should("contain", "Fantasy | Action | Comedy | Crime")
       .get(".tagline").should("contain", "Meet the new law of the Afterlife.")
       .get(".overview").should("contain", "he joins a special police force and returns to Earth to save humanity from the undead.")
-      .get(".revenue").should("contain", "78324220")
+      .get(".revenue").should("contain", "$78,324,220")
   });
 
   it("should allow the user to click a button to return to the main page", function() {

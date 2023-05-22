@@ -8,7 +8,6 @@ const Footer = () => {
       <img className="rancid-rudy" src={ rudy } 
      alt="Rancid Rudy logo" />
     </footer>
-
   );
 };
 
