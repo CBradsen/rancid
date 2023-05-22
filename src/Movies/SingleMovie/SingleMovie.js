@@ -1,7 +1,7 @@
 import React from "react";
 import DetailedView from "../../DetailedView/DetailedView";
 import PropTypes from 'prop-types';
-import { specificData } from '../../apiCalls'
+import { specificData } from '../../apiCalls';
 
 class SingleMovie extends React.Component {
   constructor() {
@@ -12,12 +12,12 @@ class SingleMovie extends React.Component {
       error: '',
       isLoading: true 
     };
-  }
+  };
 
   componentDidMount() {
     const posterId = this.props.match.params.id;
     this.getSpecificMovieData(posterId);
-  }
+  };
 
   getSpecificMovieData = (id) => {
     specificData(id)
@@ -76,8 +76,8 @@ class SingleMovie extends React.Component {
         />
       </div>
     );
-  }
-}
+  };
+};
 
 SingleMovie.propTypes = {
   match: PropTypes.shape({

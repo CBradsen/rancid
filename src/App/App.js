@@ -15,11 +15,11 @@ class App extends React.Component {
       error: '',
       isLoading: true,
     };
-  }
+  };
 
   componentDidMount() {
     this.getMovieData();
-  }
+  };
 
   getMovieData = () => {
     fetchData()
@@ -59,7 +59,7 @@ class App extends React.Component {
         <Footer />
       </main>
     );
-  }
-}
+  };
+};
 
 export default App;

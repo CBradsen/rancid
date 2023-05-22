@@ -1,7 +1,7 @@
 import React from "react";
 import "../DetailedView/DetailedView.css";
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Trailers from "../Trailers/Trailers"; 
 
 const DetailedView = ({

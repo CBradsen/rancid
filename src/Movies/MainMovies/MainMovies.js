@@ -9,7 +9,7 @@ import SortButton from "./SortButton/SortButton"
 const MainMovies = ({ posters, sortByRating }) =>  {
   if(!posters) {
     return [];
-  }
+  };
 
 const posterCards = posters.movies.map(({ poster_path, id, title, average_rating }) => {
   return(
