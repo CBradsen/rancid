@@ -1,7 +1,5 @@
 import React from "react";
-import "../SingleMovie/SingleMovie.css";
 import DetailedView from "../../DetailedView/DetailedView";
-import Trailers from "../../Trailers/Trailers";
 import PropTypes from 'prop-types';
 import { specificData } from '../../apiCalls'
 
@@ -58,7 +56,6 @@ class SingleMovie extends React.Component {
       runtime,
       tagline,
     } = selectedPoster.movie;
-
 
     return (
       <div className="detail-container">
