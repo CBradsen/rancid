@@ -37,5 +37,5 @@ The project demonstrates proficiency in React fundamentals, testing, refactoring
 The team effectively collaborated and communicated throughout the project, resulting in a successful outcome.
 
 ## Preview
-![Rancid Preview(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZhNDI1OGQwNWRlMjBhYTVhNjk3ZDllODkxMjFmYjI5YzgwMDlkZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/JjMlqt16qYMbfbjt2W/giphy.gif)
+![Rancid Preview](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZhNDI1OGQwNWRlMjBhYTVhNjk3ZDllODkxMjFmYjI5YzgwMDlkZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/JjMlqt16qYMbfbjt2W/giphy.gif)
 
