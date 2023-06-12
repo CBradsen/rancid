@@ -13,7 +13,7 @@ Copy and paste the provided URL into a new web page to access the application.
 ## Project Overview
 At Rancid Rutabagas users can browse and explore a collection of movies. The application allows users to view details about individual movies, such as the title, release date, poster, and overview. Users can also navigate between different movie details and the main view of all movies.
 
-Throughout the project, the team emphasized testing using Cypress and TypeProps to ensure the application's functionality and user flows were thoroughly tested. We alsos focused on writing quality code, adhering to React best practices, and maintaining a modular file structure.
+Throughout the project, the team emphasized testing using Cypress and TypeProps to ensure the application's functionality and user flows were thoroughly tested. We also focused on writing quality code, adhering to React best practices, and maintaining a modular file structure.
 
 ## Technologies Used
 The Rancid Rutabagas project utilizes the following technologies:
